@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+libdir = File.expand_path(File.dirname(__FILE__) + "/../lib")
+$LOAD_PATH.unshift libdir unless $LOAD_PATH.include?(libdir)
+
+require 'obrez'
+require 'rack'
+
+server = Rack::Handler::Mongrel
+app = ARGV.first
+options = {:Port => 3456, :Host => "0.0.0.0"}
+server.run Obrez::App.new(app), options do
+  puts "== Obrez starting #{server.to_s} on #{options[:Host]}:#{options[:Port]}"
+end

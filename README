@@ -1,0 +1,13 @@
+Obrez
+
+A sawed-off shotgun for use in restrictive environments (mainly win32, where fork is not available).
+So far only the simplest sinatra apps are supported.
+
+Usage
+-----
+
+Installation:
+	gem install obrez
+
+Running Sinatra app:
+	obrez sin.rb

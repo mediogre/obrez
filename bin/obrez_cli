@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+libdir = File.expand_path(File.dirname(__FILE__) + "/../lib")
+$LOAD_PATH.unshift libdir unless $LOAD_PATH.include?(libdir)
+
+require 'obrez'
+
+# we only support the simplest sinatra apps for now
+load ARGV.first
+Obrez.shoot Sinatra::Application
